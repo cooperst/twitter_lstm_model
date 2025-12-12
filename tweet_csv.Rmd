@@ -1,0 +1,145 @@
+```{r}
+tw1 = read.csv("IRAhandle_tweets_1.csv")
+```
+
+```{r}
+tw2 = read.csv("IRAhandle_tweets_2.csv")
+```
+
+```{r}
+tw3 = read.csv("IRAhandle_tweets_3.csv")
+```
+
+```{r}
+tw4 = read.csv("IRAhandle_tweets_4.csv")
+```
+
+```{r}
+tw5 = read.csv("IRAhandle_tweets_5.csv")
+```
+
+```{r}
+tw6 = read.csv("IRAhandle_tweets_6.csv")
+```
+
+```{r}
+tw7 = read.csv("IRAhandle_tweets_7.csv")
+```
+
+```{r}
+tw8 = read.csv("IRAhandle_tweets_8.csv")
+```
+
+```{r}
+tw9 = read.csv("IRAhandle_tweets_9.csv")
+```
+
+```{r}
+tw10 = read.csv("IRAhandle_tweets_10.csv")
+```
+
+```{r}
+tw11 = read.csv("IRAhandle_tweets_11.csv")
+```
+
+```{r}
+tw1 = tw1[,3]
+```
+
+```{r}
+tw2 = tw2[,3]
+```
+
+```{r}
+tw3 = tw3[,3]
+```
+
+```{r}
+tw4 = tw4[,3]
+```
+
+```{r}
+tw5 = tw5[,3]
+```
+
+```{r}
+tw6 = tw6[,3]
+```
+
+```{r}
+tw7 = tw7[,3]
+```
+
+```{r}
+tw8 = tw8[,3]
+```
+
+```{r}
+tw9 = tw9[,3]
+```
+
+```{r}
+tw10 = tw10[,3]
+```
+
+```{r}
+tw11 = tw11[,3]
+```
+
+```{r}
+datasets = list(tw1, tw2, tw3, tw4, tw5, tw6, tw7, tw8, tw9, tw10, tw11) 
+```
+
+```{r}
+comb = unlist(datasets, use.names = FALSE)
+```
+
+```{r}
+write(comb, file = "combined_troll.txt", ncolumns = 1)
+```
+
+```{r}
+tw12 = scan("training_set_tweets.txt", what = "")
+```
+
+```{r}
+tw13 = scan("test_set_tweets.txt", what = "")
+```
+
+```{r}
+gen_tweets = list(tw12, tw13)
+gen_tweets = unlist(gen_tweets, use.names = FALSE)
+write(gen_tweets, file = "combined_gen.txt", ncolumns = 1)
+```
+
+```{r}
+tw14 = scan("training.dat", what = "")
+tw15 = scan("evaluation.dat", what = "")
+tw16 = scan("test.dat", what = "")
+```
+```{r}
+movie_tweets = list(tw14, tw15, tw16)
+movie_tweets = unlist(movie_tweets, use.names = FALSE)
+```
+
+```{r}
+write(movie_tweets, file = "combined_movie.txt", ncolumns = 1)
+```
+```{r}
+tw17 = readLines("combined_troll.txt")
+```
+
+```{r}
+tw18 = readLines("combined_gen.txt")
+tw19 = readLines("combined_movie.txt")
+```
+
+
+```{r}
+combined_tweets = c(tw17, tw18, tw19)
+```
+
+```{r}
+writeLines(combined_tweets, "combined_tweets.txt")
+```
+
